@@ -1,48 +1,57 @@
-form {
+.recommendations-container {
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10px;
-  margin-bottom: 20px;
+  padding: 2rem;
+  gap: 2rem;
+  background-color: #181818; // Match global background
+}
 
-  div {
-    display: flex;
-    gap: 10px;
-    align-items: center;
-  }
+.form-card {
+  width: 100%;
+  max-width: 500px;
+  padding: 1rem;
+  background-color: #2A2A2A; // Dark card background
+  color: #F1FAEE; // Primary text
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5); // Deeper shadow for depth
+}
 
-  input {
-    padding: 5px;
-    font-size: 1rem;
-  }
+.form-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 
-  button {
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-
-    &:disabled {
-      background-color: #ccc;
-      cursor: not-allowed;
+  mat-form-field {
+    .mat-form-field-label {
+      color: #A8DADC; // Secondary text for labels
     }
-
-    &:hover:not(:disabled) {
-      background-color: #0056b3;
+    .mat-input-element {
+      color: #F1FAEE; // Input text
     }
   }
 }
 
-.loading, .error {
-  text-align: center;
-  margin: 10px 0;
+.loading-container,
+.error-container {
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: center;
+  color: #A8DADC; // Secondary text
+}
+
+.movies-card {
+  width: 100%;
+  max-width: 1200px;
+  padding: 1rem;
+  background-color: #2A2A2A; // Dark card background
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
 }
 
 .movie-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 16px;
 }

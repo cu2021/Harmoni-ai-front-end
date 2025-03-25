@@ -1,1 +1,14 @@
-/* You can add global styles to this file, and also import other style files */
+body {
+  margin: 0;
+  font-family: 'Roboto', 'Helvetica Neue', sans-serif;
+  background-color: #181818; // Dark background
+  color: #F1FAEE; // Primary text color
+}
+
+a {
+  color: #A8DADC; // Secondary text for links
+  text-decoration: none;
+  &:hover {
+    color: #E63946; // Primary accent on hover
+  }
+}

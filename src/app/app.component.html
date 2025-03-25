@@ -1,5 +1,9 @@
-<nav>
-  <a routerLink="/personalized">Personalized Recommendations</a>
-  <a routerLink="/genre">Genre Recommendations</a>
-</nav>
-<router-outlet></router-outlet>
+<mat-toolbar color="primary">
+  <span>Harmoni-AI</span>
+  <span class="spacer"></span>
+  <a mat-button routerLink="/personalized">Personalized Recommendations</a>
+  <a mat-button routerLink="/genre">Genre Recommendations</a>
+</mat-toolbar>
+<main>
+  <router-outlet></router-outlet>
+</main>

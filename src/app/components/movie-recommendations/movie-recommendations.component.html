@@ -1,23 +1,64 @@
 <div class="recommendations-container">
-  <h2>Personalized Movie Recommendations</h2>
-  <form [formGroup]="recommendationForm" (ngSubmit)="onSubmit()">
-    <div>
-      <label for="userId">User ID:</label>
-      <input id="userId" formControlName="userId" type="number">
-    </div>
-    <div>
-      <label for="movieId">Movie ID:</label>
-      <input id="movieId" formControlName="movieId" type="number">
-    </div>
-    <div>
-      <label for="topN">Top N:</label>
-      <input id="topN" formControlName="topN" type="number" min="1">
-    </div>
-    <button type="submit" [disabled]="recommendationForm.invalid">Get Recommendations</button>
-  </form>
-  <div *ngIf="loading" class="loading">Loading...</div>
-  <div *ngIf="error" class="error">{{ error }}</div>
-  <div *ngIf="movies.length > 0 && !loading && !error" class="movie-list">
-    <app-movie-card *ngFor="let movie of movies" [movie]="movie"></app-movie-card>
-  </div>
+  <!-- Form Container -->
+  <mat-card class="form-card" [@fadeIn]>
+    <mat-card-header>
+      <mat-card-title>Personalized Movie Recommendations</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <form [formGroup]="recommendationForm" (ngSubmit)="onSubmit()" class="form-container">
+        <mat-form-field appearance="outline">
+          <mat-label>User ID</mat-label>
+          <input matInput type="number" formControlName="userId" placeholder="Enter User ID" required>
+          <mat-icon matPrefix>person</mat-icon>
+          <mat-error *ngIf="recommendationForm.get('userId')?.hasError('required')">
+            User ID is required
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Movie ID</mat-label>
+          <input matInput type="number" formControlName="movieId" placeholder="Enter Movie ID" required>
+          <mat-icon matPrefix>movie</mat-icon>
+          <mat-error *ngIf="recommendationForm.get('movieId')?.hasError('required')">
+            Movie ID is required
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Top N</mat-label>
+          <input matInput type="number" formControlName="topN" placeholder="Enter number of recommendations" min="1" required>
+          <mat-icon matPrefix>list</mat-icon>
+          <mat-error *ngIf="recommendationForm.get('topN')?.hasError('required')">
+            Top N is required
+          </mat-error>
+          <mat-error *ngIf="recommendationForm.get('topN')?.hasError('min')">
+            Top N must be at least 1
+          </mat-error>
+        </mat-form-field>
+
+        <button mat-raised-button color="primary" type="submit" [disabled]="recommendationForm.invalid || loading">
+          {{ loading ? 'Fetching...' : 'Get Recommendations' }}
+        </button>
+      </form>
+
+      <div class="loading-container" *ngIf="loading" [@fadeInOut]>
+        <mat-spinner diameter="40"></mat-spinner>
+        <span>Loading recommendations...</span>
+      </div>
+
+      <div class="error-container" *ngIf="error" [@fadeInOut]>
+        <mat-icon color="warn">error</mat-icon>
+        <span>{{ error }}</span>
+      </div>
+    </mat-card-content>
+  </mat-card>
+
+  <!-- Movie List Container -->
+  <mat-card class="movies-card" *ngIf="movies.length > 0 && !loading && !error" [@fadeIn]>
+    <mat-card-content>
+      <div class="movie-list" [@listAnimation]="movies.length">
+        <app-movie-card *ngFor="let movie of movies" [movie]="movie"></app-movie-card>
+      </div>
+    </mat-card-content>
+  </mat-card>
 </div>
