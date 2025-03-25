@@ -1,0 +1,23 @@
+<div class="recommendations-container">
+  <h2>Personalized Movie Recommendations</h2>
+  <form [formGroup]="recommendationForm" (ngSubmit)="onSubmit()">
+    <div>
+      <label for="userId">User ID:</label>
+      <input id="userId" formControlName="userId" type="number">
+    </div>
+    <div>
+      <label for="movieId">Movie ID:</label>
+      <input id="movieId" formControlName="movieId" type="number">
+    </div>
+    <div>
+      <label for="topN">Top N:</label>
+      <input id="topN" formControlName="topN" type="number" min="1">
+    </div>
+    <button type="submit" [disabled]="recommendationForm.invalid">Get Recommendations</button>
+  </form>
+  <div *ngIf="loading" class="loading">Loading...</div>
+  <div *ngIf="error" class="error">{{ error }}</div>
+  <div *ngIf="movies.length > 0 && !loading && !error" class="movie-list">
+    <app-movie-card *ngFor="let movie of movies" [movie]="movie"></app-movie-card>
+  </div>
+</div>

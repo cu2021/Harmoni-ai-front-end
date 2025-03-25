@@ -1,0 +1,18 @@
+<div class="genre-recommendations-container">
+  <h2>Genre-Based Movie Recommendations</h2>
+  <div class="genre-selection">
+    <label for="genre">Select a Genre:</label>
+    <select id="genre" [(ngModel)]="selectedGenre">
+      <option value="">--Select Genre--</option>
+      <option *ngFor="let genre of genres" [value]="genre">{{ genre }}</option>
+    </select>
+    <label for="topN">Top N:</label>
+    <input id="topN" [(ngModel)]="topN" type="number" min="1">
+    <button (click)="getRecommendations()">Get Recommendations</button>
+  </div>
+  <div *ngIf="loading" class="loading">Loading...</div>
+  <div *ngIf="error" class="error">{{ error }}</div>
+  <div *ngIf="movies.length > 0 && !loading && !error" class="movie-list">
+    <app-movie-card *ngFor="let movie of movies" [movie]="movie"></app-movie-card>
+  </div>
+</div>

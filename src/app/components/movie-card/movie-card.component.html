@@ -1,0 +1,6 @@
+<div class="movie-card">
+  <img [src]="movie.poster_url" [alt]="movie.title" class="poster">
+  <h3>{{ movie.title }}</h3>
+  <p>Release Date: {{ movie.release_date | date:'mediumDate' }}</p>
+  <p *ngIf="movie.final_score">Score: {{ movie.final_score | number:'1.2-2' }}</p>
+</div>

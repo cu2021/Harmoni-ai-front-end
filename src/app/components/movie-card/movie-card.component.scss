@@ -1,0 +1,23 @@
+.movie-card {
+  width: 200px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  text-align: center;
+
+  .poster {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+  }
+
+  h3 {
+    font-size: 1.1rem;
+    margin: 10px 0;
+  }
+
+  p {
+    margin: 5px 0;
+    font-size: 0.9rem;
+  }
+}

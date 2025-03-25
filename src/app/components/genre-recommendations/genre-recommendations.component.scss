@@ -1,0 +1,36 @@
+.genre-selection {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 20px;
+
+  select, input {
+    padding: 5px;
+    font-size: 1rem;
+  }
+
+  button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #0056b3;
+    }
+  }
+}
+
+.loading, .error {
+  text-align: center;
+  margin: 10px 0;
+}
+
+.movie-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
