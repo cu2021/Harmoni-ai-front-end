@@ -1,59 +1,153 @@
 .genre-recommendations-container {
   min-height: 100vh;
+  padding: 2rem 4%;
+  background-color: #141414;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 2rem;
   gap: 2rem;
-  background-color: #181818; // Match global background
+  color: #ffffff;
+
+  @media (max-width: 600px) {
+    padding: 1rem 4%;
+  }
 }
 
 .form-card {
   width: 100%;
-  max-width: 600px;
-  padding: 1rem;
-  background-color: #2A2A2A; // Dark card background
-  color: #F1FAEE; // Primary text
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  max-width: 500px;
+  background-color: #181818;
+  color: #ffffff;
+  border-radius: 4px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+
+  mat-card-header {
+    padding-bottom: 0;
+    background-color: #181818;
+    border-radius: 4px 4px 0 0;
+    position: relative;
+
+    &:after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 1rem;
+      right: 1rem;
+      height: 1px;
+      background-color: #333333;
+    }
+
+    mat-card-title {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: #ffffff;
+      padding: 1rem 1rem 0.5rem;
+    }
+  }
+
+  mat-card-content {
+    padding: 1rem;
+  }
 }
 
 .genre-selection {
   display: flex;
-  flex-wrap: wrap;
-  gap: 16px;
-  align-items: center;
+  flex-direction: column;
+  gap: 1.2rem;
+  margin-top: 1rem;
 
   mat-form-field {
+    width: 100%;
+
     .mat-form-field-label {
-      color: #A8DADC; // Secondary text for labels
+      color: #b3b3b3 !important;
     }
+
+    .mat-select-value-text,
     .mat-input-element,
-    .mat-select-value {
-      color: #F1FAEE; // Input/select text
+    input, textarea, mat-select {
+      color: #ffffff !important;
+    }
+
+    ::placeholder {
+      color: #b3b3b3 !important;
+      opacity: 1;
+    }
+
+    .mat-form-field-outline {
+      color: #e50914;
+    }
+
+    .mat-form-field-prefix .mat-icon {
+      color: #b3b3b3;
+    }
+
+    .mat-error {
+      font-size: 0.75rem;
+      color: #e50914;
+    }
+
+    .mat-select-arrow {
+      color: #ffffff;
+    }
+  }
+
+  button[mat-raised-button] {
+    align-self: flex-end;
+    font-weight: 500;
+    background-color: #e50914;
+    color: #ffffff;
+    transition: background-color 0.3s ease;
+    padding: 0.25rem 1.5rem;
+    border-radius: 4px;
+
+    &:hover {
+      background-color: #b20710;
+    }
+
+    &:disabled {
+      background-color: rgba(229, 9, 20, 0.5);
+      color: rgba(255, 255, 255, 0.7);
     }
   }
 }
 
 .loading-container,
 .error-container {
-  margin-top: 1rem;
+  margin-top: 1.5rem;
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 0.5rem;
   justify-content: center;
-  color: #A8DADC; // Secondary text
+  font-size: 0.95rem;
+  color: #b3b3b3;
+
+  mat-icon {
+    vertical-align: middle;
+    color: #e50914;
+  }
 }
 
 .movies-card {
   width: 100%;
-  max-width: 1200px;
-  padding: 1rem;
-  background-color: #2A2A2A; // Dark card background
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  max-width: 1400px;
+  background-color: transparent;
+  border-radius: 0;
+  padding: 1.5rem 0;
+  color: #ffffff;
+  box-shadow: none;
+
+  mat-card-content {
+    padding: 0;
+  }
 }
 
 .movie-list {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 16px;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+
+  @media (max-width: 600px) {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  }
 }

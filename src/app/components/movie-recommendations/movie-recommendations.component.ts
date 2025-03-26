@@ -1,13 +1,25 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ReactiveFormsModule, FormBuilder, Validators, FormGroup } from '@angular/forms';
+import {
+  ReactiveFormsModule,
+  FormBuilder,
+  Validators,
+  FormGroup,
+} from '@angular/forms';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSpinner } from '@angular/material/progress-spinner';
-import { trigger, transition, style, animate, stagger, query } from '@angular/animations';
+import {
+  trigger,
+  transition,
+  style,
+  animate,
+  stagger,
+  query,
+} from '@angular/animations';
 import { RecommendationService } from '../../services/recommendation.service';
 import { MovieCardComponent } from '../movie-card/movie-card.component';
 import { Movie } from '../../models/movie';
@@ -40,18 +52,23 @@ import { Movie } from '../../models/movie';
         style({ opacity: 0 }),
         animate('200ms', style({ opacity: 1 })),
       ]),
-      transition(':leave', [
-        animate('200ms', style({ opacity: 0 })),
-      ]),
+      transition(':leave', [animate('200ms', style({ opacity: 0 }))]),
     ]),
     trigger('listAnimation', [
       transition('* => *', [
-        query(':enter', [
-          style({ opacity: 0, transform: 'translateY(20px)' }),
-          stagger(100, [
-            animate('300ms ease-out', style({ opacity: 1, transform: 'translateY(0)' })),
-          ]),
-        ], { optional: true }),
+        query(
+          ':enter',
+          [
+            style({ opacity: 0, transform: 'translateY(20px)' }),
+            stagger(100, [
+              animate(
+                '300ms ease-out',
+                style({ opacity: 1, transform: 'translateY(0)' })
+              ),
+            ]),
+          ],
+          { optional: true }
+        ),
       ]),
     ]),
   ],
@@ -80,16 +97,20 @@ export class MovieRecommendationsComponent implements OnInit {
       this.loading = true;
       this.error = null;
       const { userId, movieId, topN } = this.recommendationForm.value;
-      this.recommendationService.getPersonalizedRecommendations(userId, movieId, topN).subscribe({
-        next: (response) => {
-          this.movies = response;
-          this.loading = false;
-        },
-        error: (err) => {
-          this.error = err.message || 'Failed to load recommendations. Please try again.';
-          this.loading = false;
-        },
-      });
+      this.recommendationService
+        .getPersonalizedRecommendations(userId, movieId, topN)
+        .subscribe({
+          next: (response) => {
+            this.movies = response;
+            this.loading = false;
+          },
+          error: (err) => {
+            this.error =
+              err.message ||
+              'Failed to load recommendations. Please try again.';
+            this.loading = false;
+          },
+        });
     }
   }
 }

@@ -25,6 +25,7 @@ bootstrapApplication(AppComponent, {
       MatFormFieldModule,
       MatInputModule,
       MatIconModule
-    ), provideAnimationsAsync(),
-  ]
+    ),
+    provideAnimationsAsync(),
+  ],
 });
