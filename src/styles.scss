@@ -1,14 +1,144 @@
-body {
-  margin: 0;
+html, body {
+  height: 100%;
   font-family: 'Roboto', 'Helvetica Neue', sans-serif;
-  background-color: #181818; // Dark background
-  color: #F1FAEE; // Primary text color
+  background-color: #141414; // Netflix dark background
+  color: #ffffff; // White text
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Cards / Sections */
+.mat-card,
+.form-card,
+.movies-card {
+  background-color: #181818; // Netflix card background
+  color: #ffffff; // White text
+  border-radius: 4px; // Netflix uses subtle rounded corners
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+/* Toolbar */
+.mat-toolbar {
+  background-color: #000000; // Netflix black navbar
+  color: #ffffff;
+
+  a {
+    color: #ffffff;
+    font-weight: 500;
+
+    &:hover {
+      color: #e50914; // Netflix red
+    }
+
+    &.active-link {
+      border-bottom: 2px solid #e50914; // Netflix red
+    }
+  }
+}
+
+/* Form Fields */
+mat-form-field {
+  .mat-form-field-label {
+    color: #b3b3b3 !important; // Netflix light gray
+  }
+
+  .mat-input-element,
+  .mat-select-value-text {
+    color: #ffffff !important; // White text
+  }
+
+  input, textarea, select, .mat-select-value {
+    color: #ffffff !important; // Ensure white text for all input elements
+  }
+
+  ::placeholder {
+    color: #b3b3b3 !important; // Netflix light gray for placeholders
+    opacity: 1; // Firefox requires this
+  }
+
+  .mat-form-field-outline {
+    color: #e50914; // Netflix red
+  }
+
+  .mat-error {
+    color: #e50914; // Netflix red
+  }
+
+  .mat-icon {
+    color: #b3b3b3; // Netflix light gray
+  }
+
+  .mat-select-arrow {
+    color: #ffffff; // White arrow for dropdowns
+  }
+
+  // Style for selected options in dropdowns
+  .mat-option.mat-selected:not(.mat-option-disabled) {
+    color: #ffffff !important;
+  }
+
+  // Style for options in dropdowns
+  .mat-option {
+    color: #ffffff !important;
+  }
+}
+
+/* Buttons */
+button[mat-raised-button] {
+  background-color: #e50914; // Netflix red
+  color: #ffffff;
+  font-weight: 500;
+  border-radius: 4px; // Netflix subtle rounded corners
+
+  &:hover {
+    background-color: #b20710; // Darker Netflix red
+  }
+
+  &:disabled {
+    background-color: rgba(229, 9, 20, 0.5); // Faded Netflix red
+    color: rgba(255, 255, 255, 0.7);
+  }
+}
+
+/* Utility */
+.main-container,
+.container {
+  padding: 2rem 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  color: #ffffff;
+}
+
+.loading-container,
+.error-container {
+  color: #b3b3b3; // Netflix light gray
 }
 
 a {
-  color: #A8DADC; // Secondary text for links
-  text-decoration: none;
+  color: #b3b3b3; // Netflix light gray
   &:hover {
-    color: #E63946; // Primary accent on hover
+    color: #e50914; // Netflix red
   }
+}
+
+/* Dropdown Menu Styles */
+.mat-select-panel {
+  background-color: #181818 !important; // Netflix dark background for dropdowns
+  border: 1px solid #333333;
+}
+
+.mat-option {
+  color: #ffffff !important; // White text for options
+
+  &:hover:not(.mat-option-disabled) {
+    background-color: rgba(229, 9, 20, 0.1) !important; // Hint of red on hover
+  }
+
+  &.mat-selected:not(.mat-option-disabled) {
+    color: #e50914 !important; // Netflix red for selected option
+  }
+}
+
+.mat-select-value-text {
+  color: #ffffff !important; // White text for selected value
 }

@@ -1,6 +1,50 @@
+.app-toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: #000000;
+  color: #ffffff;
+  padding: 0 4%;
+  display: flex;
+  align-items: center;
+  height: 68px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
+
+  a {
+    color: #e5e5e5;
+    font-weight: 500;
+    margin-left: 1.2rem;
+    transition: color 0.2s ease, border-color 0.2s ease;
+
+    &:hover {
+      color: #e50914;
+    }
+
+    &.active-link {
+      color: #ffffff;
+      border-bottom: 2px solid #e50914;
+    }
+  }
+}
+
+.app-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: #e50914;
+}
+
 .spacer {
   flex: 1 1 auto;
 }
-main {
-  padding: 2rem;
+
+.main-container {
+  padding: 2rem 4%;
+  max-width: 1400px;
+  margin: 0 auto;
+  color: #ffffff;
+
+  @media (max-width: 600px) {
+    padding: 1rem 4%;
+  }
 }

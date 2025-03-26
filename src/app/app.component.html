@@ -1,9 +1,10 @@
-<mat-toolbar color="primary">
-  <span>Harmoni-AI</span>
+<mat-toolbar color="primary" class="app-toolbar">
+  <span class="app-title">Harmoni-AI</span>
   <span class="spacer"></span>
-  <a mat-button routerLink="/personalized">Personalized Recommendations</a>
-  <a mat-button routerLink="/genre">Genre Recommendations</a>
+  <a mat-button routerLink="/personalized" routerLinkActive="active-link">Personalized</a>
+  <a mat-button routerLink="/genre" routerLinkActive="active-link">By Genre</a>
 </mat-toolbar>
-<main>
+
+<main class="main-container">
   <router-outlet></router-outlet>
 </main>

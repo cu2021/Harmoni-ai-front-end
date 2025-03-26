@@ -8,10 +8,7 @@ import { Movie } from '../../models/movie';
 @Component({
   selector: 'app-movie-card',
   standalone: true,
-  imports: [
-    CommonModule,
-    MatCardModule,
-  ],
+  imports: [CommonModule, MatCardModule],
   templateUrl: './movie-card.component.html',
   styleUrls: ['./movie-card.component.scss'],
   animations: [
